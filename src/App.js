@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+// import React from 'react'
+// // import Home from './Home'
+// const App = () => { 
+//   let count=0
+//   const fun1=()=>{
+//     // console.log('ehehehehe');
+//     count++
+//     console.log(count,"rrrr");
+//   }
+//   return (
+//     <div>  
+//     <p>  {count} </p>
+//       <button  onClick={fun1}> click me</button>
+      
+//   {/* <Home  data='hello' /> */}
+//     </div>
+//   )
+// }
 
-function App() {
+// export default App
+
+
+import React from 'react'
+import Home from './Home'
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Home/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
