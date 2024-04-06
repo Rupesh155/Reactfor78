@@ -404,29 +404,40 @@ const App = () => {
   })
 
   function fun1(e){
-    console.log(e.target.name, e.target.value);
+    const { name, value } = e.target;
+    SetInput({...input, [name]:value})
+    // console.log(input,"input");
 
 
+  
   }
+
+  const done=(e)=>{
+        e.preventDefault();
+    console.log('heheheeh');
+    console.log(input);
+  }
+
+
 
 
   return (
     <div>
-      <form>
-        <input  type='text'   onChange={fun1} name='firstName' value={input.firstName}  placeholder='Enter your  firstName '/>
+      <form  onSubmit={done}>
+        <input  type='text'  required  onChange={fun1} name='firstName' value={input.firstName}  placeholder='Enter your  firstName '/>
         <br/>
         <br/>
 
-        <input  type='text'  onChange={fun1}  name='lastName'  value={input.lastName} placeholder='Enter your lastName '/>
+        <input  type='text' required onChange={fun1}  name='lastName'  value={input.lastName} placeholder='Enter your lastName '/>
         <br/>
         <br/>
-        <input  type='email'   onChange={fun1} name='email' value={input.email}  placeholder='email'/>
+        <input  type='email'   required onChange={fun1} name='email' value={input.email}  placeholder='email'/>
         <br/>
         <br/>
-        <input  type='password'  onChange={fun1}  name='password' value={input.password}   placeholder='PassWord'/>
+        <input  type='password'  required onChange={fun1}  name='password' value={input.password}   placeholder='PassWord'/>
         <br/>
         <br/>
-        <button> addd</button>
+        <button type='submit'> addd</button>
 
       </form>
     </div>
