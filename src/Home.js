@@ -200,24 +200,24 @@
 
 // export default Home
 
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 
-function ScreenColorChange() {
-  const [color, setColor] = useState('white'); 
+// function ScreenColorChange() {
+//   const [color, setColor] = useState('white'); 
 
 
-  const changeColor = () => {
-    setColor(color === 'white' ? 'lightblue' : 'white'); 
-  };
+//   const changeColor = () => {
+//     setColor(color === 'white' ? 'lightblue' : 'white'); 
+//   };
 
-  return (
-    <div style={{ backgroundColor: color, height: '100vh' }}>
-      <button onClick={changeColor}>Change Color</button>
-    </div>
-  );
-}
+//   return (
+//     <div style={{ backgroundColor: color, height: '100vh' }}>
+//       <button onClick={changeColor}>Change Color</button>
+//     </div>
+//   );
+// }
 
-export default ScreenColorChange;
+// export default ScreenColorChange;
 
 
 // import React, { useEffect, useState } from 'react'
@@ -261,3 +261,107 @@ export default ScreenColorChange;
 // }
 
 // export default Home
+
+
+
+
+
+// import React from 'react'
+
+// const Home = () => {
+//   return (
+//     <div>Home</div>
+//   )
+// }
+
+// export default Home
+
+// import React, { useState } from 'react';
+
+// function MyForm() {
+//   const [formData, setFormData] = useState({
+//     firstName: '',
+//     lastName: '',
+//     email: '',
+//     message: ''
+//   });
+
+//   const handleChange = (e) => {
+//     const { name, value } = e.target;
+//     setFormData({
+//       ...formData,
+//       [name]: value
+//     });
+//   };
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     // Handle form submission, e.g., send data to server
+//     console.log('Form submitted:', formData);
+//   };
+
+//   return (
+//     <form onSubmit={handleSubmit}>
+//       <label>
+//         First Name:
+//         <input
+//           type="text"
+//           name="firstName"
+//           value={formData.firstName}
+//           onChange={handleChange}
+//         />
+//       </label>
+//       <br />
+//       <label>
+//         Last Name:
+//         <input
+//           type="text"
+//           name="lastName"
+//           value={formData.lastName}
+//           onChange={handleChange}
+//         />
+//       </label>
+//       <br />
+//       <label>
+//         Email:
+//         <input
+//           type="email"
+//           name="email"
+//           value={formData.email}
+//           onChange={handleChange}
+//         />
+//       </label>
+//       <br />
+//       <label>
+//         Message:
+//         <textarea
+//           name="message"
+//           value={formData.message}
+//           onChange={handleChange}
+//         />
+//       </label>
+//       <br />
+//       <button type="submit">Submit</button>
+//     </form>
+//   );
+// }
+
+// export default MyForm;
+
+
+import React from 'react'
+
+const Home = () => {
+  return (
+    <div>Home</div>
+  )
+}
+
+export default Home
+
+
+
+
+
+
+

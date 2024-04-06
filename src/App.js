@@ -102,18 +102,18 @@
 
 
 
-// // import React from 'react'
-// // import ScreenColorChange from './Home'
+// import React from 'react'
+// import ScreenColorChange from './Home'
 
-// // const App = () => {
-// //   return (
-// //     <div>
-// //       <ScreenColorChange/>
-// //     </div>
-// //   )
-// // }
+// const App = () => {
+//   return (
+//     <div>
+//       <ScreenColorChange/>
+//     </div>
+//   )
+// }
 
-// // export default App
+// export default App
 
 
 
@@ -270,36 +270,168 @@
 
 // export default App
 
+// import React, { useState } from 'react'
+// const App = () => {
+//   const [input,SetInput]=useState()
+//   const [data,SetData]=useState([])
+//   const fun1=(e)=>{
+//     SetInput(e.target.value)
+//   }
+//   const add=()=>{
+//     SetData([...data,input])
+//     SetInput('')
+//   }
+
+//   function delet(id){
+//     // console.log(id);
+//     let newAA=  data.filter((val,index)=>{
+//       return index!=id
+
+//     })
+//     SetData(newAA)
+
+//   }
+//   return (
+//     <div>
+//       <input  name='input'  value={input} onChange={fun1} type='text' placeholder='Enter your todo'/>
+//       <button onClick={add}> add</button>
+//       {
+//         data.map((a,b,c)=>{
+//           return(<>
+//           <li> {a}</li>
+//           <button onClick={()=>delet(b)}> delet</button>
+//           </>)
+//         })
+//       }
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+// import React, { useState } from 'react'
+
+// const App = () => {
+//   const [input,SetInput]=useState()
+//   const [data,SetData]=useState([])
+//   function fun1(e){
+//     SetInput(e.target.value)
+//     // console.log(e.target.value);
+//   }
+//   const add=()=>{
+//     SetData([...data,input])
+//     SetInput('')
+//   }
+//   function delet(id){
+//         let newA=   data.filter((val,index)=>{
+//           return index!=id
+//           })
+//           SetData(newA)
+//   }
+//   return (
+//     <div>
+//       <input  onChange={fun1} type='text' name=''  value={input}   placeholder='Enter your todo' />
+//       <button onClick={add}> add</button>{
+//         data.map((a,b)=>{
+//           return(<>
+//           <li> {a}</li>
+//           <button onClick={()=> delet(b)}> delet</button>
+//           </>)
+
+//         })
+//       }
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+// import React, { useEffect, useState } from 'react'
+// const App = () => {
+//   let [count,SetCount]=useState(0)
+//   let [city,SetCity]=useState('bhopal')
+
+//  // useEffect
+//   useEffect(()=>{
+//     fetch('https://jsonplaceholder.typicode.com/todos').
+//     then((res)=>{
+//       return res.json()
+  
+//     }).then((data)=>{
+//       console.log(data);
+  
+//     })
+    
+//   },[count])
+
+
+
+
+
+
+//   function fun1(){
+//     // console.log('eheheh');
+//     SetCount(count+1)
+//   }
+//   function fun2(){
+//     SetCity('delhi')
+//   }
+//   return (
+//     <div>
+//       <p> {count}</p>
+//         <button onClick={fun1}> add</button>
+//         <h3>  {city}</h3>
+//         <button onClick={fun2}>change  </button>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+
 import React, { useState } from 'react'
 
 const App = () => {
-  const [input,SetInput]=useState()
-  const [data,SetData]=useState([])
- 
-  const fun1=(e)=>{
-    SetInput(e.target.value)
+  let [input,SetInput]=useState({
+    firstName:"",
+    lastName:"",
+    email:"",
+    password:""
+
+  })
+
+  function fun1(e){
+    console.log(e.target.name, e.target.value);
+
 
   }
-  const add=()=>{
-    SetData([...data,input])
-    SetInput('')
-  }
+
+
   return (
     <div>
-      <input  name='input'  value={input} onChange={fun1} type='text' placeholder='Enter your todo'/>
-      <button onClick={add}> add</button>
-      {
-        data.map((a,b,c)=>{
-          return(<>
-          <li> {a}</li>
-          </>)
+      <form>
+        <input  type='text'   onChange={fun1} name='firstName' value={input.firstName}  placeholder='Enter your  firstName '/>
+        <br/>
+        <br/>
 
-        })
-      }
+        <input  type='text'  onChange={fun1}  name='lastName'  value={input.lastName} placeholder='Enter your lastName '/>
+        <br/>
+        <br/>
+        <input  type='email'   onChange={fun1} name='email' value={input.email}  placeholder='email'/>
+        <br/>
+        <br/>
+        <input  type='password'  onChange={fun1}  name='password' value={input.password}   placeholder='PassWord'/>
+        <br/>
+        <br/>
+        <button> addd</button>
+
+      </form>
     </div>
   )
 }
 
 export default App
-
 
