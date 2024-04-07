@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import Context from './Context';
 
-const ComB = (billG) => {
-    console.log(billG);
+const ComB = () => {
+      let a=  useContext(Context)
+      console.log(a,"kya aa rha");
+   
   return (
     <div>
-        {billG.b}
+      {
+        a
+      }
     </div>
   )
 }

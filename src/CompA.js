@@ -1,11 +1,11 @@
 import React from 'react'
 import ComB from './ComB'
 
-const CompA = (dolly) => {
-    console.log(dolly,"dolly chai wala");
+const CompA = () => {
+   
   return (
     <div>
-        <ComB  b={dolly.a}/>
+        <ComB  />
     </div>
   )
 }

@@ -599,10 +599,10 @@ import React from 'react'
 import CompA from './CompA'
 
 const App = () => {
-  let data='hello'
+ 
   return (
     <div>
-      <CompA a={data}/>
+      <CompA />
     </div>
   )
 }
