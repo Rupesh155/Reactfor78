@@ -392,8 +392,61 @@
 
 
 
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
 
+// const App = () => {
+//   let [input,SetInput]=useState({
+//     firstName:"",
+//     lastName:"",
+//     email:"",
+//     password:""
+
+//   })
+
+//   function fun1(e){
+//     const { name, value } = e.target;
+//     SetInput({...input, [name]:value})
+//     // console.log(input,"input");
+
+
+  
+//   }
+
+//   const done=(e)=>{
+//         e.preventDefault();
+//     console.log('heheheeh');
+//     console.log(input);
+//   }
+
+
+
+
+//   return (
+//     <div>
+//       <form  onSubmit={done}>
+//         <input  type='text'  required  onChange={fun1} name='firstName' value={input.firstName}  placeholder='Enter your  firstName '/>
+//         <br/>
+//         <br/>
+
+//         <input  type='text' required onChange={fun1}  name='lastName'  value={input.lastName} placeholder='Enter your lastName '/>
+//         <br/>
+//         <br/>
+//         <input  type='email'   required onChange={fun1} name='email' value={input.email}  placeholder='email'/>
+//         <br/>
+//         <br/>
+//         <input  type='password'  required onChange={fun1}  name='password' value={input.password}   placeholder='PassWord'/>
+//         <br/>
+//         <br/>
+//         <button type='submit'> addd</button>
+
+//       </form>
+//     </div>
+//   )
+// }
+
+// export default App
+
+import React, { useEffect, useState } from 'react'
 const App = () => {
   let [input,SetInput]=useState({
     firstName:"",
@@ -402,47 +455,139 @@ const App = () => {
     password:""
 
   })
+  let [data,SetData]=useState(null)
+    useEffect(()=>{
+      let val=   localStorage.getItem('data')
+      let newData=   JSON.parse(val)
+   console.log(newData,"rrr");
+  SetData(newData)
 
-  function fun1(e){
-    const { name, value } = e.target;
-    SetInput({...input, [name]:value})
-    // console.log(input,"input");
+
+    },[])
+
+
+
 
 
   
+  function fun1(e){
+    // console.log(e.target.value);   
+    let {name,value}=e.target
+    SetInput({...input, [name]:value})
+    // console.log(input,"r");
+
   }
 
-  const done=(e)=>{
-        e.preventDefault();
-    console.log('heheheeh');
-    console.log(input);
-  }
+function chalaja(e){
+  e.preventDefault();
+  console.log(input);
+     let a=  JSON.stringify(input)
+  localStorage.setItem('data',a)
 
 
-
-
+ 
+}
   return (
     <div>
-      <form  onSubmit={done}>
-        <input  type='text'  required  onChange={fun1} name='firstName' value={input.firstName}  placeholder='Enter your  firstName '/>
+      <form onSubmit={chalaja}>
+        <input type='text'  onChange={fun1}  name='firstName'  value={input.firstName} placeholder='Enter your firstName'/>
         <br/>
         <br/>
 
-        <input  type='text' required onChange={fun1}  name='lastName'  value={input.lastName} placeholder='Enter your lastName '/>
+        <input type='text'  onChange={fun1} name='lastName'  value={input.lastName}  placeholder='Enter your lastName'/>
         <br/>
         <br/>
-        <input  type='email'   required onChange={fun1} name='email' value={input.email}  placeholder='email'/>
+        <input type='email'  onChange={fun1} name='email'  value={input.email} placeholder='Enter your email'/>
         <br/>
         <br/>
-        <input  type='password'  required onChange={fun1}  name='password' value={input.password}   placeholder='PassWord'/>
+        <input type='password'    onChange={fun1} name='password' value={input.password} placeholder='Enter your passWord'/>
         <br/>
         <br/>
-        <button type='submit'> addd</button>
+<button   type='submit'> add</button>
 
       </form>
+
+
+
+      {/* <h1> {data?.firstName}</h1>
+      <h4>{data.lastName}</h4>
+      <p>   {data.email}</p> */}
+
+      {
+        data?(<>
+        <h1> {data.firstName}</h1>
+        <h4>   {data.lastName}</h4>
+        <h4>  {data.email}</h4>
+        </>):(<>    <h2>  nhi mila kuch </h2></>)
+      }
     </div>
   )
 }
 
 export default App
+
+
+
+
+
+
+
+
+// import React, { useContext, useState } from 'react';
+
+// // Create a ThemeContext
+// const ThemeContext = React.createContext();
+
+// // Create a ThemeProvider component
+// function ThemeProvider({ children }) {
+//   const [theme, setTheme] = useState('light');
+
+//   const toggleTheme = () => {
+//     setTheme(theme === 'light' ? 'dark' : 'light');
+//   };
+
+//   return (
+//     <ThemeContext.Provider value={{ theme, toggleTheme }}>
+//       {children}
+//     </ThemeContext.Provider>
+//   );
+// }
+
+// // Header component
+// function Header() {
+//   const { theme, toggleTheme } = useContext(ThemeContext);
+
+//   return (
+//     <header style={{ background: theme === 'light' ? '#f0f0f0' : '#333', padding: '10px' }}>
+//       <h1>Theme Switcher</h1>
+//       <button onClick={toggleTheme}>Toggle Theme</button>
+//     </header>
+//   );
+// }
+
+// // Main component
+// function Main() {
+//   const { theme } = useContext(ThemeContext);
+
+//   return (
+//     <main style={{ background: theme === 'light' ? '#fff' : '#666', padding: '20px', color: theme === 'light' ? '#333' : '#fff' }}>
+//       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dui vel libero condimentum luctus. Ut consequat mauris nec enim ultrices, ac blandit arcu dapibus. Sed at dolor ac ex elementum tempus. Duis quis faucibus lacus.</p>
+//     </main>
+//   );
+// }
+
+// // App component
+// function App() {
+//   return (
+//     <ThemeProvider>
+//       <div>
+//         <Header />
+//         <Main />
+//       </div>
+//     </ThemeProvider>
+//   );
+// }
+
+// export default App;
+
 
