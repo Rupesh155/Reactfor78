@@ -2,13 +2,14 @@
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import Context from './Context';
+import {BrowserRouter}  from 'react-router-dom'
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
  let data='hello'
 root.render(
-<Context.Provider   value={data}>   
+<BrowserRouter>  
     <App />
-    </Context.Provider>
+    </BrowserRouter>
+ 
  
 
 

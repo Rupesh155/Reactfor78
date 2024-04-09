@@ -1,0 +1,39 @@
+.cart-container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .cart-items {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .cart-item {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+  }
+  
+  .item-image {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+  }
+  
+  .item-details {
+    flex: 1;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
