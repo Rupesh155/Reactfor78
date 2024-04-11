@@ -611,8 +611,7 @@ const App = () => {
         <Route  path='/view'  element={<ViewCart/>}/>
       </Routes>
     </div>
-  )
-}
+  ) }
 
 export default App
 
