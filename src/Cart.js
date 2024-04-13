@@ -48,7 +48,7 @@ import './Cart.css';
 
 const Cart = () => {
   const [cartData, setCartData] = useState([]);
-  const [cart,SetCart]=useState([])
+  // const [cart,SetCart]=useState([])
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -64,29 +64,33 @@ const Cart = () => {
   };
 
   const handleRemove = (id) => {
-    // const updatedCart = cartData.map(item =>
-    //   item.id === id && item.quantity > 0 ? { ...item, quantity: item.quantity - 1 } : item
-    // );
-    // setCartData(updatedCart);
+    const updatedCart = cartData.map(item =>
+      item.id === id && item.quantity > 0 ? { ...item, quantity: item.quantity - 1 } : item
+    );
+    setCartData(updatedCart);
    };
 
   const getTotalPrice = () => {
-    // return cartData.reduce((total, item) => total + item.price * item.quantity, 0);
+    return cartData.reduce((total, item) => 
+    total + item.price * item.quantity, 0);
   };
 
   const handleViewCart = () => {
-    navigate('/view');
+    navigate('/view')
 
   };
 
-  const handleAddToCart = (id) => {
+  const addtoCart = (id) => {
     console.log(id);
-    const updatedCart = cartData.map(item =>
-      item.id === id ? { ...item, quantity: 1 } : item
+    // const updatedCart=cartData.map((data)=>data.id===shivi? 
+    // {...data,quantity:1}:data)
+    const updatedCart = cartData.map(data =>
+      data.id === id ? { ...data, quantity: 1 } : data
     );
     setCartData(updatedCart);
 
   };
+
 
   return (
     <div className="cart-container">
@@ -100,15 +104,18 @@ const Cart = () => {
               <h3>{item.name}</h3>
               <p>{item.description}</p>
               <p>Price: ${item.price}</p>
-              {item.quantity === 0 ? (
-                <button onClick={() => handleAddToCart(item.id)}>Add to Cart</button>
-              ) : (
-                <div>
-                  <button onClick={() => handleRemove(item.id)}>-</button>
-                  {/* <span>{item.quantity}</span> */}
-                  <button onClick={() => handleAdd(item.id)}>+</button>
-                </div>
-              )}
+              <p> quantity:{item.quantity}  </p>
+          
+
+          {
+            item.quantity===0? (  <button  onClick={()=>addtoCart(item.id)}> addtoCart</button>):(<>
+            <button onClick={() => handleAdd(item.id)}> +</button>
+            <button onClick={() =>handleRemove(item.id)} > -</button>
+            </>)
+          }
+ 
+
+           
             </div>
           </li>
         ))}
@@ -121,4 +128,21 @@ const Cart = () => {
 export default Cart;
 
 
+// {item.quantity === 0 ? (
+//   <button onClick={() => handleAddToCart(item.id)}>Add to Cart</button>
+// ) : (
+//   <div>
+//     <button onClick={() => handleRemove(item.id)}>-</button>
+//     {/* <span>{item.quantity}</span> */}
+//     <button onClick={() => handleAdd(item.id)}>+</button>
+//   </div>
+// )}
 
+
+
+let arr=[1,2,3,4,5]
+
+let sum=   arr.reduce((a,b)=>{
+  return a+b
+})
+console.log(sum);

@@ -596,16 +596,12 @@
 
 
 import React from 'react'
-import CompA from './CompA'
 import Cart from './Cart'
 import { Route,Routes } from 'react-router-dom'
 import ViewCart from './ViewCart'
 const App = () => {
- 
   return (
     <div>
-      {/* <CompA /> */}
-      {/* <Cart/> */}
       <Routes>
         <Route   path='/'  element={<Cart/>}  />
         <Route  path='/view'  element={<ViewCart/>}/>
