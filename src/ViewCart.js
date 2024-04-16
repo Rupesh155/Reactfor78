@@ -1,9 +1,23 @@
-import React from 'react'
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 const ViewCart = () => {
-  return (
-    <div>ViewCart</div>
-  )
-}
+  const location = useLocation();
+  const { cart } = location.state;
+  console.log(cart,"dddd");
 
-export default ViewCart
+  return (
+    <div>
+      <h2>View Cart</h2>
+      <ul>
+        {cart.map((item, index) => (
+          <li key={index}>
+            {item.name} - Quantity: {item.quantity}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default ViewCart;
