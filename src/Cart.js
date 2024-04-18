@@ -142,13 +142,16 @@ const Cart = () => {
   }, []);
 
   const handleAdd = (id) => {
+
     const updatedCart = cartData.map(item =>
       item.id === id ? { ...item, quantity: item.quantity + 1 } : item
     );
     setCartData(updatedCart);
-    const productToAdd = { ...cartData.find(item => item.id === id) };
+    
+    const productToAdd = { ...cartData[id]};
     setCart([...cart, productToAdd]);
   };
+
 
   const handleRemove = (id) => {
     const updatedCart = cartData.map(item =>
@@ -161,25 +164,37 @@ const Cart = () => {
     return cartData.reduce((total, item) => total + item.price * item.quantity, 0);
   };
 
-  const handleViewCart = () => {
-    navigate('/view', { state: { cart } });
-  };
+  // const handleViewCart = () => {
+  //   navigate('/view', { state: { cart } });
+  // };
+
+  // const addtoCart = (id) => {
+  //   const updatedCartData = cartData.map(data =>
+  //     data.id === id ? { ...data, quantity: data.quantity + 1 } : data
+  //   );
+  //   setCartData(updatedCartData);
+  // };
 
   const addtoCart = (id) => {
     const updatedCartData = cartData.map(data =>
       data.id === id ? { ...data, quantity: 1 } : data
     );
+
     setCartData(updatedCartData)
     const productToAdd = { ...cartData.find(item => item.id === id), quantity: 1 };
     // setCartData(updatedCartData);
     setCart([...cart, productToAdd]);
   };
-  
 
+  const handleViewCart = () => {
+    const filteredCart = cartData.filter(item => item.quantity > 0);
+    navigate('/view', { state: { cart:filteredCart } });
+  };
+  
   return (
     <div className="cart-container">
       <h2>Cart</h2>
-      <button onClick={handleViewCart}>View Cart</button>
+      <button onClick={handleViewCart}> View Cart ({cartData.filter(item => item.quantity > 0).length})</button>
       <p>Total Price: ${getTotalPrice()}</p>
       <ul className="cart-items">
         {cartData.map(item => (
@@ -210,6 +225,9 @@ export default Cart;
 
 
 
+
+
+
 // {item.quantity === 0 ? (
 //   <button onClick={() => handleAddToCart(item.id)}>Add to Cart</button>
 // ) : (
@@ -219,7 +237,3 @@ export default Cart;
 //     <button onClick={() => handleAdd(item.id)}>+</button>
 //   </div>
 // )}
-
-
-
-

@@ -599,11 +599,13 @@ import React from 'react'
 import Cart from './Cart'
 import { Route,Routes } from 'react-router-dom'
 import ViewCart from './ViewCart'
+import CopyToClipboard from './Cart'
+import CopyCat from './Cart'
 const App = () => {
   return (
     <div>
       <Routes>
-        <Route   path='/'  element={<Cart/>}  />
+        <Route   path='/'  element={<CopyCat/>}  />
         <Route  path='/view'  element={<ViewCart/>}/>
       </Routes>
     </div>

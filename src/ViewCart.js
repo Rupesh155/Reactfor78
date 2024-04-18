@@ -15,9 +15,11 @@ const ViewCart = () => {
             {item.name} - Quantity: {item.quantity}
           </li>
         ))}
-      </ul>
+      </ul>      
     </div>
   );
 };
 
 export default ViewCart;
+
+
