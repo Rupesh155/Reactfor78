@@ -147,7 +147,7 @@ const Cart = () => {
       item.id === id ? { ...item, quantity: item.quantity + 1 } : item
     );
     setCartData(updatedCart);
-    
+
     const productToAdd = { ...cartData[id]};
     setCart([...cart, productToAdd]);
   };
@@ -188,7 +188,8 @@ const Cart = () => {
 
   const handleViewCart = () => {
     const filteredCart = cartData.filter(item => item.quantity > 0);
-    navigate('/view', { state: { cart:filteredCart } });
+    let price=getTotalPrice()
+    navigate('/view', { state: { cart:filteredCart,price } });
   };
   
   return (

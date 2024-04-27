@@ -595,22 +595,109 @@
 // export default App;
 
 
-import React from 'react'
-import Cart from './Cart'
-import { Route,Routes } from 'react-router-dom'
-import ViewCart from './ViewCart'
-import CopyToClipboard from './Cart'
-import CopyCat from './Cart'
+// import React from 'react'
+// import Cart from './Cart'
+// import { Route,Routes } from 'react-router-dom'
+// import ViewCart from './ViewCart'
+// import CopyToClipboard from './Cart'
+// import CopyCat from './Cart'
+// const App = () => {
+//   return (
+//     <div>
+//       <Routes>
+//         <Route   path='/'  element={<CopyCat/>}  />
+//         <Route  path='/view'  element={<ViewCart/>}/>
+//       </Routes>
+//     </div>
+//   ) }
+
+// export default App
+
+
+
+// import React, { useEffect, useRef, useState } from 'react'
+
+// const App = () => {
+//   let [data,SetData]=useState()
+//   let [input,SetInput]=useState('')
+//   let a=  useRef(0)
+
+//     // SetData(data+1)
+//     // console.log(a.current.type,"hello");
+
+//     useEffect(()=>{
+//       a.current+=1
+//     })
+  
+//   return (
+//     <div>
+//       <input  onChange={(e)=>SetInput(e.target.value)}  type='text' placeholder='ENTER APNA KAAM'  />
+//       <p>  {a.current}</p>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+// import React, { useEffect, useState } from 'react'
+// const App = () => {
+//   let [data,SetData]=useState([])
+//   useEffect(()=>{
+
+
+//     fetch('https://dummyjson.com/recipes').then((data)=>{
+//       return data.json()
+
+//     }).then((res)=>{
+//       SetData(res.recipes)
+//       console.log(res);
+//     })
+//   },[])
+//   return (
+//     <div>
+//       {
+//         data.map((a)=>{
+//           return(<>
+//           <p> {a.id}</p>
+//           <p> {a.name}</p>
+//           </>)
+//         })
+//       }
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+import React, { useEffect, useRef, useState } from 'react'
+
 const App = () => {
+  let [data,SetData]=useState('')
+  const fun1=(abhi)=>{
+    SetData(abhi.target.value)
+
+  }
+
+    let a=   useRef(0)
+    console.log(a.current.type,"helloo");
+  useEffect(()=>{
+    // SetData(data+1)
+    // a.current+=1
+
+  })
+
   return (
     <div>
-      <Routes>
-        <Route   path='/'  element={<CopyCat/>}  />
-        <Route  path='/view'  element={<ViewCart/>}/>
-      </Routes>
+      <input     ref={a} onChange={fun1} type='text'  placeholder=''/>
+      <p>  dekho: {a.current}</p>
     </div>
-  ) }
+  )
+}
 
 export default App
+
+
 
 
