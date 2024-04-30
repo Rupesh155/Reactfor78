@@ -671,33 +671,174 @@
 // export default App
 
 
-import React, { useEffect, useRef, useState } from 'react'
+// import React, { useEffect, useRef, useState } from 'react'
+
+// const App = () => {
+//   let [data,SetData]=useState('')
+//   const fun1=(abhi)=>{
+//     SetData(abhi.target.value)
+
+//   }
+
+//     let a=   useRef(0)
+//     console.log(a.current.type,"helloo");
+//   useEffect(()=>{
+//     // SetData(data+1)
+//     // a.current+=1
+
+//   })
+
+//   return (
+//     <div>
+//       <input     ref={a} onChange={fun1} type='text'  placeholder=''/>
+//       <p>  dekho: {a.current}</p>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+
+// import React, { useReducer } from 'react'
+
+// const App = () => {
+//   let reduser=(state, action)=>{
+//     console.log(state,action,'d');
+//     if(action==='incre'){
+//       return state+1
+
+//     }
+//     else if(action==='desc'){
+//       return state-1
+//     }
+//     return state
+
+//   }
+//     let [state,dispatch]=   useReducer(reduser,0)
+//   return (
+//     <div>
+// <button onClick={()=>{dispatch({type:"incre"})}}> increament</button>
+// <button onClick={()=>{dispatch({type:"desc"})}}> decreament</button>
+// <p> {state}</p>
+
+
+
+//     </div>
+//   )
+// }
+
+// export default App
+
+// import React, { useReducer } from 'react'
+
+// const App = () => {
+//   let reducer = (state, action) => {
+//     console.log(state, action, 'd');
+//     if (action.type === 'incre') {
+//       return state + 1;
+//     } else if (action.type === 'desc') {
+//       return state - 1;
+//     }
+//     return state;
+//   }
+
+//   let [state, dispatch] = useReducer(reducer, 0);
+
+//   return (
+//     <div>
+//       <button onClick={() => { dispatch({ type: "incre" }) }}>increment</button>
+//       <button onClick={() => { dispatch({ type: "desc" }) }}>decrement</button>
+//       <p>{state}</p>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+// import React, { useReducer } from 'react';
+
+// const initialState = false;
+
+// const reducer = (state, action) => {
+//   switch (action.type) {
+//     case 'toggle':
+//       return !state;
+//     case 'reset':
+//       return initialState;
+//     default:
+//       return state;
+//   }
+// };
+
+// const App = () => {
+//   const [state, dispatch] = useReducer(reducer, initialState);
+
+//   return (
+//     <div>
+//       <h1>{state ? 'On' : 'Off'}</h1>
+//       <button onClick={() => dispatch({ type: 'toggle' })}>Toggle</button>
+//       <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
+//     </div>
+//   );
+// };
+
+// export default App;
+
+
+import React, { useReducer } from 'react';
+
+const initialState = false;
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'toggle':
+      return !state;
+    case 'reset':
+      return initialState;
+    default:
+      return state;
+  }
+};
 
 const App = () => {
-  let [data,SetData]=useState('')
-  const fun1=(abhi)=>{
-    SetData(abhi.target.value)
-
-  }
-
-    let a=   useRef(0)
-    console.log(a.current.type,"helloo");
-  useEffect(()=>{
-    // SetData(data+1)
-    // a.current+=1
-
-  })
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <div>
-      <input     ref={a} onChange={fun1} type='text'  placeholder=''/>
-      <p>  dekho: {a.current}</p>
+    <div >
+      <h1 style={{ color: state ? 'green' : 'red' }}>{state ? 'On' : 'Off'}</h1>
+      <button onClick={() => dispatch({ type: 'toggle' })}>Toggle</button>
+      <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
 
 
+// import React, { useReducer, useState } from 'react'
+// let reducer=(state,action)=>{
+//   if(action.type==='incre'){
+//     return state+1
+//   }
+//   else if(action.type==='decr' && state>0){
+//     return state-1
+//   }
+//   return state
+// }
+// const App = () => {
+//   // let [state,SetState]=useState(0)
+//      let [state,dispatch]  =  useReducer(reducer,0)
+//   return (
+//     <div>
+//       <p> {state}</p>
+//       <button onClick={()=>dispatch({type:"incre"})}> Increament</button>
+//       <button onClick={()=>dispatch({type:'decr'})}> decreament</button>
+//     </div>
+//   )
+// }
+
+// export default App
 
 
